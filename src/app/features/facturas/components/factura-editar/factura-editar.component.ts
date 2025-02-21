@@ -82,7 +82,6 @@ export class FacturaEditarComponent implements OnInit {
 
   calcularSubtotal(detalle: any) {
     return (detalle.quantity && detalle.unitPrice) ? detalle.quantity * detalle.unitPrice : 0;
-    this.cd.detectChanges(); // 🔥 Forzar actualización en la vista
   }
 
   guardarCambios() {
