@@ -93,7 +93,8 @@ export class FacturaEditarComponent implements OnInit {
   guardarCambios() {
     this.invoiceService.updateFactura(this.invoice.id, this.invoice).subscribe(() => {
        Swal.fire({
-          title: "Update invoice!",
+          title: "Factura actualizada!",
+          text: "Se ha actualizado correctamente.",
           icon: "success",
           draggable: true
         });

@@ -37,13 +37,13 @@ export class FacturaListComponent implements OnInit {
   confirmarEliminacion(id: number) {
       console.log(id);
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: "¿Estás seguro?",
+        text: "¡No podrás revertir esto!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonText: "Y¡Sí, elimínalo!"
       }).then((result) => {
         if (result.isConfirmed) {
           if(id === undefined) {
@@ -52,8 +52,8 @@ export class FacturaListComponent implements OnInit {
           }
           this.deleteFactura(id);
           Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
+            title: "Eliminado!",
+            text: "Tu archivo ha sido eliminado.",
             icon: "success"
           });
         }
@@ -68,7 +68,7 @@ export class FacturaListComponent implements OnInit {
 
   filteredInvoices: any[] = [];
 
-  filterInvoices(searchTerm: string) {
+  filtrarFactura(searchTerm: string) {
     if (!searchTerm) {
       this.filteredInvoices = this.invoices; // Mostrar todas si no hay búsqueda
     } else {
@@ -77,5 +77,14 @@ export class FacturaListComponent implements OnInit {
       );
     }
   }
+
+  // cambiarEstado(id: number, status: string) {
+  //   console.log(id, status);
+  //   const invoice = this.invoices.find(i => i.id === id);
+  //   invoice.status = status;
+  //   this.facturaService.updateStatus(id, invoice).subscribe(() => {
+  //     this.cargarFacturas();
+  //   });
+  // }
 
 }

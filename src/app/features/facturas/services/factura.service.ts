@@ -20,6 +20,7 @@ export class FacturaService {
   }
 
   createFactura(factura: Factura): Observable<Factura> {
+    factura.status = factura.status ?? 'active';
     return this.http.post<Factura>(this.apiUrl, factura);
   }
 
@@ -34,6 +35,16 @@ export class FacturaService {
   deleteDetail(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/detailDelete/${id}`);
   }
+
+  // updateStatus(invoiceId: number, status: string): Observable<any> {
+  //   const url = `${this.apiUrl}/statusUpdate/${invoiceId}`;
+  //   const body = { status }; // Asegúrate de que esto esté bien estructurado
+  //   console.log("Enviando datos a la API:", body); // ✅ Verificar lo que se envía
+
+  //   return this.http.patch(url, body, { headers: { 'Content-Type': 'application/json' } });
+  // }
+
+
 
   // actualizarFactura(factura: any): Observable<any> {
   //   return this.http.put(`${this.apiUrl}/${factura.id}`, factura);

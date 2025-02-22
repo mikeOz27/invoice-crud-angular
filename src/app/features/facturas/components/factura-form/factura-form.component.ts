@@ -67,6 +67,7 @@ export class FacturaFormComponent {
 
     const factura: Factura = {
       customer: this.facturaForm.value.customer ?? '',
+      status: 'active',
       date: this.facturaForm.value.date ?? '',
       details: this.facturaForm.value.details ?? []
     };

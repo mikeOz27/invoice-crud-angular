@@ -42,19 +42,19 @@ export class FacturaDetailComponent implements OnInit {
 
   confirmarEliminacion(id:number, index: number) {
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: "¿Estás seguro?",
+        text: "¡No podrás revertir esto!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonText: "Y¡Sí, elimínalo!"
       }).then((result) => {
         if (result.isConfirmed) {
           this.eliminarDetalle(id, index);
           Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
+            title: "Eliminado!",
+            text: "Tu archivo ha sido eliminado.",
             icon: "success"
           });
         }

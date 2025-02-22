@@ -9,6 +9,7 @@ export interface Factura {
   id?: number;
   customer: string;
   date: string;
+  status?: string;
   details: FacturaDetalle[];
   total?: number;
 }

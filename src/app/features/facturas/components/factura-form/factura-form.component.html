@@ -26,19 +26,19 @@
         <div *ngFor="let detail of details.controls; let i = index" [formGroup]="getDetailGroup(i)"
           class="mb-2 border border-gray-300 p-2 rounded flex items-center space-x-4">
          <div class="flex-1">
-          <label class="block font-medium text-white">Producto:</label>
+          <label class="block font-medium ">Producto:</label>
           <input type="text" [formControlName]="'product'"
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
          </div>
 
          <div class="flex-1">
-          <label class="block font-medium text-white">Cantidad:</label>
+          <label class="block font-medium ">Cantidad:</label>
           <input type="number" [formControlName]="'quantity'"
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
          </div>
 
          <div class="flex-1">
-          <label class="block font-medium text-white">Precio:</label>
+          <label class="block font-medium ">Precio:</label>
           <input type="number" [formControlName]="'unitPrice'" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
          </div>
 
