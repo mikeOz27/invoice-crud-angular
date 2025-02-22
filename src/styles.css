@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+pagination-controls {
+  color: #1f2937 !important;
+  /* Gris oscuro */
+}
+
+.dark pagination-controls {
+  color: #ffffff !important;
+  /* Blanco en modo oscuro */
+}

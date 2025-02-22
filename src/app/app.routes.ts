@@ -11,14 +11,10 @@ export const routes: Routes = [
   // { path: '', redirectTo: 'facturas', pathMatch: 'full' },
   { path: '', component: LandingComponent }, // Página de inicio
   { path: 'invoices', component: FacturaListComponent },
-  // {
-  //   path: 'facturas',
-  //   loadComponent: () => import('./features/facturas/components/factura-list/factura-list.component').then(m => m.FacturaListComponent)
-  // },
   { path: 'invoice/create', component: FacturaFormComponent },
   { path: 'invoice/edit/:id', component: FacturaEditarComponent },
   { path: 'invoice/show/:id', component: FacturaDetailComponent },
-  // { path: '**', redirectTo: 'facturas' }
+  { path: '**', redirectTo: 'invoices' }
 ];
 
 
