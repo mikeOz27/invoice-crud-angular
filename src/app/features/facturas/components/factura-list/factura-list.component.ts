@@ -17,6 +17,7 @@ export class FacturaListComponent implements OnInit {
   page: number = 1; // Página actual
   itemsPerPage: number = 5; // Número de elementos por página
   searchTerm: string = '';
+  totalItems: number = 0;
 
   constructor(private facturaService: FacturaService) { }
 
@@ -28,6 +29,7 @@ export class FacturaListComponent implements OnInit {
     this.facturaService.getFacturas().subscribe(data => {
       this.invoices = data;
       this.filteredInvoices = this.invoices;
+      this.totalItems = this.invoices.length;
     });
   }
 

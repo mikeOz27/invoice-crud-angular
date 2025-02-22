@@ -1,12 +1,12 @@
 <app-header title="Dashboard"></app-header>
-<main class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
-  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+<main class="p-3 sm:p-5">
+  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8" >
     <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
       <h2 class="text-xl font-semibold mb-4">Registrar Factura</h2>
 
-      <form [formGroup]="facturaForm" (ngSubmit)="guardarFactura()">
+      <form [formGroup]="facturaForm" (ngSubmit)="guardarFactura()" >
         <div>
-          <label for="customer" class="block text-sm/6 font-medium text-gray-900">CLiente</label>
+          <label for="customer" class="block text-sm/6 font-medium">Cliente</label>
           <div class="mt-2">
             <input type="text" formControlName="customer" id="customer" autocomplete="customer" required
               class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
@@ -15,7 +15,7 @@
 
         <div>
           <div class="flex items-center justify-between">
-            <label for="date" class="block text-sm/6 font-medium text-gray-900">Date</label>
+            <label for="date" class="block text-sm/6 font-medium">Date</label>
           </div>
           <div class="mt-2">
             <input type="date" formControlName="date" id="date" autocomplete="current-date" required
@@ -26,19 +26,19 @@
         <div *ngFor="let detail of details.controls; let i = index" [formGroup]="getDetailGroup(i)"
           class="mb-2 border border-gray-300 p-2 rounded flex items-center space-x-4">
          <div class="flex-1">
-          <label class="block font-medium">Producto:</label>
+          <label class="block font-medium text-white">Producto:</label>
           <input type="text" [formControlName]="'product'"
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
          </div>
 
          <div class="flex-1">
-          <label class="block font-medium">Cantidad:</label>
+          <label class="block font-medium text-white">Cantidad:</label>
           <input type="number" [formControlName]="'quantity'"
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
          </div>
 
          <div class="flex-1">
-          <label class="block font-medium">Precio:</label>
+          <label class="block font-medium text-white">Precio:</label>
           <input type="number" [formControlName]="'unitPrice'" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
          </div>
 

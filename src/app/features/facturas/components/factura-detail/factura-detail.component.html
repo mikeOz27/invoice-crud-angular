@@ -1,5 +1,5 @@
 <app-header title="Dashboard"></app-header>
-<main class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+<main class="bg-gray-50 dark:bg-gray-700 p-3 sm:p-5">
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 bg-gray-100">
     <div class="container mx-auto p-6">
       <h2 class="text-2xl font-semibold text-gray-800">Detalle Factura</h2>
@@ -25,35 +25,39 @@
         <!-- Tabla Detalle de Factura -->
         <h3 class="text-xl font-semibold mt-6">Detalle de la Factura</h3>
 
-        <table class="table-auto w-full mt-4 border-collapse">
-          <thead>
-            <tr>
-              <th class="border px-4 py-2">Producto</th>
-              <th class="border px-4 py-2">Cantidad</th>
-              <th class="border px-4 py-2">Precio</th>
-              <th class="border px-4 py-2">Subtotal</th>
-              <th class="border px-4 py-2">Acciones</th>
-            </tr>
-          </thead>
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Producto
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Precio</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subtotal
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones
+            </th>
+          </tr>
+        </thead>
           <tbody>
             <tr *ngFor="let detalle of invoice.details; let i = index">
-              <td class="border px-4 py-2">
+              <td class="px-6 py-4 whitespace-nowrap">
                 <input type="text" [(ngModel)]="detalle.product" name="producto-{{i}}"
                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" disabled="true">
               </td>
-              <td class="border px-4 py-2">
+              <td class="px-6 py-4 whitespace-nowrap">
                 <input type="number" [(ngModel)]="detalle.quantity" name="cantidad-{{i}}"
                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" (input)="calcularTotal()" disabled="true">
               </td>
-              <td class="border px-4 py-2">
+              <td class="px-6 py-4 whitespace-nowrap">
                 <input type="number" [(ngModel)]="detalle.unitPrice" name="precio-{{i}}"
                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" (input)="calcularTotal()" disabled="true">
               </td>
-              <td class="border px-4 py-2">
+              <td class="px-6 py-4 whitespace-nowrap">
                 {{ calcularSubtotal(detalle) | currency }}
 
               </td>
-              <td class="border px-4 py-2">
+              <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex justify-center">
                   <button type="button" (click)="confirmarEliminacion(detalle.id, i)"
                     class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-600 cursor-pointer">
@@ -67,10 +71,11 @@
               </td>
             </tr>
           </tbody>
-          <tfoot>
-            <tr class="border-t-2">
-              <td colspan="3" class="border px-4 py-2 text-right">Total:</td>
-              <td class="border px-4 py-2">{{ invoice.total | currency }}</td>
+          <tfoot class="bg-gray-50">
+            <tr>
+              <td colspan="3" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Total:</td>
+              <td class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ invoice.total | currency
+                }}</td>
             </tr>
           </tfoot>
         </table>
