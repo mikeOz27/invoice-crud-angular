@@ -41,7 +41,7 @@ export class FacturaFormComponent {
   agregarDetalle() {
     const detalle = new FormGroup({
       product: new FormControl('', Validators.required),
-      quantity: new FormControl(1, [Validators.required, Validators.min(1)]),
+      quantity: new FormControl(0, [Validators.required, Validators.min(1)]),
       unitPrice: new FormControl(0, [Validators.required, Validators.min(0)])
     });
 

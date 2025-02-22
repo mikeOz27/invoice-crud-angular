@@ -37,6 +37,7 @@ export class FacturaDetailComponent implements OnInit {
         this.invoice = data;
       });
     }
+    this.calcularTotal()
   }
 
   confirmarEliminacion(id:number, index: number) {
@@ -64,7 +65,7 @@ export class FacturaDetailComponent implements OnInit {
     this.invoiceService.deleteDetail(id).subscribe(() => {
       this.invoice.details = this.invoice.details.filter((_: any, i: number) => i !== index); // 🔥 Crea una copia nueva del array
       this.calcularTotal(); // 🔥 Recalcula el total
-      this.cd.detectChanges(); // 🔥 Forzar detección de cambios si es necesario
+      // this.cd.detectChanges(); // 🔥 Forzar detección de cambios si es necesario
     }, error => {
       console.error('Error al eliminar el detalle:', error);
     });
@@ -72,11 +73,9 @@ export class FacturaDetailComponent implements OnInit {
 
   calcularTotal() {
     this.invoice.total = this.invoice.details.reduce((sum: number, item: any) => sum + (item.quantity * item.unitPrice), 0);
-    this.cd.detectChanges(); // 🔥 Forzar actualización en la vista
   }
 
   calcularSubtotal(detalle: any) {
     return (detalle.quantity && detalle.unitPrice) ? detalle.quantity * detalle.unitPrice : 0;
-    this.cd.detectChanges(); // 🔥 Forzar actualización en la vista
   }
 }

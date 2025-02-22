@@ -37,10 +37,11 @@ export class FacturaEditarComponent implements OnInit {
         this.invoice = data;
       });
     }
+    this.calcularTotal()
   }
 
   agregarDetalle() {
-    this.invoice.details = [...this.invoice.details, { product: '', quantity: 1, unitPrice: 0 }];
+    this.invoice.details = [...this.invoice.details, { product: '', quantity: 0, unitPrice: 0 }];
   }
 
   confirmarEliminacion(id: number, index:number) {
@@ -55,6 +56,11 @@ export class FacturaEditarComponent implements OnInit {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
+        if(id === undefined) {
+          this.invoice.details = this.invoice.details.filter((_: any, i: number) => i !== index);
+          this.calcularTotal();
+          return;
+        }
         this.eliminarDetalle(id, index);
         Swal.fire({
           title: "Deleted!",
